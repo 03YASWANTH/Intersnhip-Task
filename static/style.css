@@ -1,0 +1,218 @@
+:root {
+  --primary-color: #1d4ed8;
+  --secondary-color: #4338ca;
+  --light-bg: #f9fafb;
+  --dark-text: #1f2937;
+  --positive: #10b981;
+  --negative: #ef4444;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--light-bg);
+  color: var(--dark-text);
+}
+
+.stock-container {
+  height: 100vh;
+  max-height: 100vh;
+}
+
+.company-list {
+  height: calc(100vh - 80px);
+  overflow-y: auto;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.company-item {
+  padding: 12px 15px;
+  border-bottom: 1px solid #e5e7eb;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.company-item:hover {
+  background-color: #f3f4f6;
+}
+
+.company-item.active {
+  background-color: #e0e7ff;
+  border-left: 4px solid var(--primary-color);
+  font-weight: 500;
+}
+
+.chart-container {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+.stock-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.company-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.company-name {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.price-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.current-price {
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.price-change {
+  display: flex;
+  align-items: center;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+.price-positive {
+  color: var(--positive);
+  background-color: rgba(16, 185, 129, 0.1);
+}
+
+.price-negative {
+  color: var(--negative);
+  background-color: rgba(239, 68, 68, 0.1);
+}
+
+.filters {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.date-filter {
+  padding: 8px 15px;
+  border-radius: 6px;
+  border: 1px solid #d1d5db;
+}
+
+.stats-cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.stat-card {
+  background: white;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.stat-title {
+  font-size: 0.85rem;
+  color: #6b7280;
+  margin-bottom: 5px;
+}
+
+.stat-value {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.search-box {
+  position: relative;
+  margin-bottom: 15px;
+}
+
+.search-box input {
+  width: 100%;
+  padding: 10px 15px;
+  padding-left: 40px;
+  border-radius: 6px;
+  border: 1px solid #d1d5db;
+}
+
+.search-icon {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #9ca3af;
+}
+
+.app-header {
+  background: linear-gradient(
+    90deg,
+    var(--primary-color),
+    var(--secondary-color)
+  );
+  color: white;
+  padding: 15px 0;
+  margin-bottom: 20px;
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  font-size: 1.2rem;
+  color: #6b7280;
+}
+
+.debug-section {
+  margin-top: 20px;
+  padding: 15px;
+  background: #f8fafc;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+}
+
+.debug-title {
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.debug-content {
+  max-height: 200px;
+  overflow-y: auto;
+  background: #1e293b;
+  color: #f8fafc;
+  padding: 10px;
+  border-radius: 6px;
+  font-family: monospace;
+  white-space: pre-wrap;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .stats-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .company-list {
+    height: 300px;
+    margin-bottom: 20px;
+  }
+}
+
+#price-chart-container {
+  min-height: 400px;
+}
